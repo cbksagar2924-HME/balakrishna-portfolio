@@ -1,0 +1,525 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>C Balakrishna Sagar | Software Developer</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+body {
+    background: #f4f7fb;
+    color: #222;
+    scroll-behavior: smooth;
+}
+
+/* NAVBAR */
+header {
+    position: sticky;
+    top: 0;
+    background: #0b3c5d;
+    padding: 18px 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    z-index: 1000;
+}
+
+header h2 {
+    letter-spacing: 1px;
+    font-size: 24px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 28px;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+nav a:hover {
+    border-bottom: 2px solid #fff;
+}
+
+/* SECTIONS */
+section {
+    padding: 60px 12%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+    scroll-margin-top: 100px;
+}
+
+section:nth-child(even) {
+    background: white;
+}
+
+.text {
+    flex: 1;
+}
+
+.text h2 {
+    font-size: 38px;
+    margin-bottom: 18px;
+    color: #0b3c5d;
+}
+
+.text p {
+    font-size: 18px;
+    line-height: 1.8;
+    margin-bottom: 12px;
+}
+
+.skill-tabs {
+    display: flex;
+    gap: 14px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+.skill-tabs:hover {
+    transform: translateY(-8px);
+}
+
+.tab-button {
+    background: #eef6ff;
+    color: #0b3c5d;
+    border: 1px solid transparent;
+    padding: 12px 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 17px;
+    transition: all 0.25s ease;
+}
+
+.tab-button.active {
+    background: #0b3c5d;
+    color: #fff;
+    border-color: #0b3c5d;
+}
+
+.skill-panels {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 30px;
+    margin-top: 24px;
+}
+.tab-panel:hover {
+    transform: translateY(-8px);
+}
+
+.tab-panel {
+    background: #f8fbff;
+    border: 1px solid rgba(11, 60, 93, 0.12);
+    border-radius: 14px;
+    padding: 22px;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.tab-panel:hover {
+    transform: translateY(-8px);
+}
+
+.tab-panel.active {
+    box-shadow: 0 18px 30px rgba(11, 60, 93, 0.08);
+    transform: translateY(-4px);
+}
+
+.skill-group h3 {
+    font-size: 26px;
+    margin-bottom: 14px;
+    color: #0b3c5d;
+}
+
+.skill-group h4 {
+    margin-top: 18px;
+    margin-bottom: 10px;
+    font-size: 20px;
+    color: #0b3c5d;
+}
+
+.skill-group ul {
+    list-style: disc inside;
+    padding-left: 0;
+}
+
+.skill-group li {
+    margin-bottom: 10px;
+    font-size: 18px;
+    line-height: 1.75;
+}
+
+.image img {
+    width:300px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease;
+}
+
+.image img:hover {
+    transform: scale(1.02);
+}
+
+/* HERO */
+#home {
+    background: linear-gradient(120deg, #0b3c5d, #1f7a8c);
+    color: white;
+}
+
+#home h1 {
+    font-size: 54px;
+    margin-bottom: 15px;
+}
+
+#home p {
+    font-size: 21px;
+    line-height: 1.7;
+}
+
+/* LIST */
+ul {
+    padding-left: 20px;
+}
+
+li {
+    font-size: 18px;
+    line-height: 1.7;
+    margin-bottom: 10px;
+}
+
+/* PROJECTS */
+.projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.project {
+    background: #ffffff;
+    padding: 25px;
+    border-left: 5px solid #0b3c5d;
+    transition: 0.3s ease;
+}
+
+.project:hover {
+    transform: translateY(-8px);
+}
+
+/* CONTACT */
+.contact-info p {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+/* FOOTER */
+footer {
+    background: #0b3c5d;
+    color: white;
+    text-align: center;
+    padding: 22px;
+    font-size: 15px;
+}
+
+/* FADE ANIMATION */
+.fade {
+    opacity: 0;
+    transform: translateY(35px);
+    transition: 1s ease;
+}
+
+.fade.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+.footer {
+    background: #0b3c5d;
+    color: white;
+    padding: 45px 12% 20px;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 40px;
+}
+
+.footer-box h3 {
+    margin-bottom: 15px;
+    font-size: 20px;
+    color: #e0f7fa;
+}
+
+.footer-box p {
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+.footer-box a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    margin-bottom: 10px;
+    font-size: 15px;
+}
+
+.footer-box a:hover {
+    color: #9adbe8;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 14px;
+    border-top: 1px solid rgba(255,255,255,0.2);
+    padding-top: 15px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    section {
+        flex-direction: column;
+        text-align: center;
+    }
+    nav {
+        display: none;
+    }
+}
+</style>
+</head>
+<body>
+
+<header>
+    <h2>C Balakrishna Sagar</h2>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#profile">Profile</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<!-- HOME -->
+<section id="home">
+    <div class="text fade">
+        <h1>Software Developer</h1>
+        <p>
+            I am Balakrishna Sagar, a passionate and disciplined software developer
+            with a strong foundation in programming, web development, and cybersecurity.
+            I focus on building secure, scalable, and user-centric digital solutions
+            while continuously upgrading my technical expertise.
+        </p>
+    </div>
+    <div class="image fade">
+        <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d">
+    </div>
+</section>
+
+<!-- PROFILE -->
+<section id="profile">
+    <div class="image fade">
+        <img src="image.png" alt="Profile photo">
+    </div>
+    <div class="text fade">
+        <h2>Professional Profile</h2>
+        <p>
+            I am a motivated technology enthusiast with a diploma background and
+            practical exposure to full-stack development and cybersecurity fundamentals.
+            I enjoy solving real-world problems through clean code, logical thinking,
+            and efficient system design.
+        </p>
+        <p>
+            I strongly believe in continuous learning, teamwork, and applying
+            best practices to develop reliable and maintainable software solutions.
+        </p>
+    </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+    <div class="text fade">
+        <h2>Experience</h2>
+        <p><strong>SV GLOBAL SERVICES-SVGS </strong></p>
+        <ul>
+            <li>Learned to protect systems from cyber threats and hackers</li>
+            <li>Worked with industry-level security tools</li>
+            <li>Gained hands-on exposure to real-world cybersecurity practices</li>
+        </ul>
+        <p>
+            I have hands-on experience in developing web applications, implementing
+            frontend and backend logic, and understanding cybersecurity concepts such as
+            vulnerability assessment, system protection, and secure coding practices.
+        </p>
+        <p>
+            My experience has strengthened my problem-solving skills, debugging abilities,
+            and understanding of real-world software development workflows.
+        </p>
+    </div>
+    <div class="image fade">
+        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b" alt="Cybersecurity dashboard">
+    </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+    <div class="image fade">
+        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c" alt="Coding skills image">
+    </div>
+    <div class="text fade">
+        <h2>Skills & Certifications</h2>
+        <div class="skill-tabs">
+        </div>
+        <div class="skill-panels">
+            <div class="tab-panel active" id="technical-panel">
+                <div class="skill-group">
+                    <h3>Technical Skills</h3>
+                    <ul>
+                        <li>Java Programming and Object-Oriented Concepts</li>
+                        <li>Python Programming and Logic Building</li>
+                        <li>HTML5, CSS3, JavaScript Web Development</li>
+                        <li>C Programming and Data Handling</li>
+                        <li>Cybersecurity Fundamentals and Secure Coding</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="tab-panel" id="certification-panel">
+                <div class="skill-group">
+                    <h3>Certifications</h3>
+                    <h4>Technical Courses</h4>
+                    <ul>
+                        <li>Introduction to HTML — Simplilearn, 2025</li>
+                        <li>Introduction to CSS — Simplilearn, 2025</li>
+                        <li>Python Intro Course — Simplilearn, 2026</li>
+                    </ul>
+                    <h4>Communication Courses</h4>
+                    <ul>
+                        <li>Communication Skills — Simplilearn, 2026</li>
+                        <li>Spoken English — Simplilearn, 2026</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+    <div class="text">
+        <h2>Projects</h2>
+        <div class="projects fade">
+            <div class="project">
+                <h3>Startup Investment Connect Platform</h3>
+                <p>
+                    Developed a web platform that connects students with startup ideas
+                    to potential investors for funding and collaboration, along with
+                    a single-phase wiring system demo room showcase.
+                    Technologies used: HTML, CSS, JavaScript.
+                </p>
+            </div>
+
+            <div class="project">
+                <h3>Defense Security Simulation System</h3>
+                <p>
+                    A high-level defense monitoring and simulation system designed
+                    to demonstrate security surveillance, alert mechanisms, and
+                    strategic monitoring models.
+                </p>
+            </div>
+
+            <div class="project">
+                <h3>Cyber Protection Tool</h3>
+                <p>
+                    A basic cybersecurity tool focused on identifying system
+                    vulnerabilities and understanding common security threats
+                    using scanning and analysis techniques.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+   <div class="image fade">
+        <img src="https://cdn-icons-png.flaticon.com/512/3059/3059997.png">
+    </div>
+    <div class="text fade contact-info">
+        <h2>Contact Information</h2>
+       
+        <p>📧 Email: cbksagar2924@gmail.com</p>
+        <p>📍 Location: India</p>
+    </div>
+</section>
+ <footer class="footer">
+    <div class="footer-container">
+
+        <div class="footer-box">
+            <h3>About Me</h3>
+            <p>
+                Passionate Software Developer focused on building secure, scalable,
+                and user-friendly applications with strong problem-solving skills
+                and continuous learning.
+            </p>
+        </div>
+
+        <div class="footer-box">
+            <h3>Quick Links</h3>
+            <a href="#home">Home</a>
+            <a href="#profile">Profile</a>
+            <a href="#experience">Experience</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </div>
+
+        <div class="footer-box">
+            <h3>Connect</h3>
+            <a href="mailto:cbksagar2924@gmail.com">Email</a>
+            <a href="https://github.com/" target="_blank">GitHub</a>
+            <a href="https://www.linkedin.com/" target="_blank">LinkedIn</a>
+            <a href="https://twitter.com/" target="_blank">Twitter</a>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        © 2025 Balakrishna Sagar | Designed & Developed by Me
+    </div>
+</footer>
+
+<script>
+const elements = document.querySelectorAll(".fade");
+
+window.addEventListener("scroll", () => {
+    elements.forEach(el => {
+        const position = el.getBoundingClientRect().top;
+        if (position < window.innerHeight - 120) {
+            el.classList.add("show");
+        }
+    });
+});
+
+const tabButtons = document.querySelectorAll('.tab-button');
+const tabPanels = document.querySelectorAll('.tab-panel');
+
+tabButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        const target = button.dataset.target;
+        tabButtons.forEach(btn => btn.classList.toggle('active', btn === button));
+        tabPanels.forEach(panel => panel.classList.toggle('active', panel.id === target));
+        document.getElementById(target).scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+});
+</script>
+
+</body>
+</html>
